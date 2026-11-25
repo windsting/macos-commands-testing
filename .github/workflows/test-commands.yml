@@ -1,0 +1,15 @@
+name: Test macOS
+
+on:
+  workflow_dispatch
+
+jobs:
+  test:
+    runs-on: macos-15
+
+    steps:
+      - name: Run command
+        run: |
+          system_profiler SPHardwareDataType
+          sw_vers
+          sysctl -n hw.model
