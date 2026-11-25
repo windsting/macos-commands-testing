@@ -13,6 +13,9 @@ jobs:
           system_profiler SPHardwareDataType
           sw_vers
           sysctl -n hw.model
+          echo "machine info:"
           printf "Manufacturer: Apple\nModel: %s\nSerial Number: %s\n" \
           "$(sysctl -n hw.model)" \
           "$(ioreg -l | awk -F'"' '/IOPlatformSerialNumber/ {print $(NF-1)}')"
+          echo "monitor info:"
+          system_profiler SPDisplaysDataType
