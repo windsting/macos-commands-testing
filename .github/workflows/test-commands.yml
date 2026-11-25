@@ -19,3 +19,5 @@ jobs:
           "$(ioreg -l | awk -F'"' '/IOPlatformSerialNumber/ {print $(NF-1)}')"
           echo "monitor info:"
           system_profiler SPDisplaysDataType
+          echo "monitor info brief:"
+          system_profiler SPDisplaysDataType | grep -E "Vendor:|Display Type:|Serial Number:"
