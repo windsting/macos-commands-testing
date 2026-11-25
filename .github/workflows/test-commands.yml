@@ -13,3 +13,6 @@ jobs:
           system_profiler SPHardwareDataType
           sw_vers
           sysctl -n hw.model
+          printf "Manufacturer: Apple\nModel: %s\nSerial Number: %s\n" \
+          "$(sysctl -n hw.model)" \
+          "$(ioreg -l | awk -F'"' '/IOPlatformSerialNumber/ {print $(NF-1)}')"
